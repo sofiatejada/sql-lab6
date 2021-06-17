@@ -20,6 +20,7 @@ async function run() {
                 CREATE TABLE legends (
                     id SERIAL PRIMARY KEY NOT NULL,
                     name VARCHAR(512) NOT NULL,
+                    special_type VARCHAR(512) NOT NULL,
                     special_group VARCHAR(512) NOT NULL,
                     type_1 VARCHAR(512) NOT NULL,
                     type_2 VARCHAR(512) NOT NULL,
