@@ -27,10 +27,10 @@ async function run() {
     await Promise.all(
       legends.map(legend => {
         return client.query(`
-                    INSERT INTO legends (name, special_group, type_1, type_2, other_forms, owner_id)
-                    VALUES ($1, $2, $3, $4, $5, $6);
+                    INSERT INTO legends (name, special_type, special_group, type_1, type_2, other_forms, owner_id)
+                    VALUES ($1, $2, $3, $4, $5, $6, $7);
                 `,
-        [legend.name, legend.special_group, legend.type_1, legend.type_2, legend.other_forms, user.id]);
+        [legend.name, legend.special_type, legend.special_group, legend.type_1, legend.type_2, legend.other_forms, user.id]);
       })
     );
     
