@@ -198,41 +198,88 @@ describe('app routes', () => {
     //   expect(data.body).toEqual(expectation);
     // });
 
-    test('PUT', async() => {
-      const data = await fakeRequest(app)
-        .put('/legends/10')
-        .send({
-          name: 'Cosmoem',
-          special_type: 'Legendary Pokemon',
-          special_group: 'Other',
-          type_1: 'Psychic',
-          type_2: 'None',
-          other_forms: false
-        })
+    // test('PUT', async() => {
+    //   const data = await fakeRequest(app)
+    //     .put('/legends/10')
+    //     .send({
+    //       name: 'Cosmoem',
+    //       special_type: 'Legendary Pokemon',
+    //       special_group: 'Other',
+    //       type_1: 'Psychic',
+    //       type_2: 'None',
+    //       other_forms: false
+    //     })
+    //     .expect('Content-Type', /json/)
+    //     .expect(200);
+
+    //   const dataLegends = await fakeRequest(app)
+    //     .get('/legends')
+    //     .expect('Content-Type', /json/)
+    //     .expect(200);
+
+    //   const newLegend = {
+    //     'id': 10,
+    //     'name': 'Cosmoem',
+    //     'special_type': 'Legendary Pokemon',
+    //     'special_group': 'Other',
+    //     'type_1': 'Psychic',
+    //     'type_2': 'None',
+    //     'other_forms': false,
+    //     'owner_id': 1
+    //   };
+
+    //   expect(data.body).toEqual(newLegend);
+    //   expect(dataLegends.body).toContainEqual(newLegend);
+    // });
+
+    // test('DELETE', async() => {
+    //   await fakeRequest(app)
+    //     .delete('/legends/10')
+    //     .expect('Content-Type', /json/)
+    //     .expect(200);
+
+    //   const dataLegends = await fakeRequest(app)
+    //     .get('/legends')
+    //     .expect('Content-Type', /json/)
+    //     .expect(200);
+
+    //   const newLegend = {
+    //     'id': 10,
+    //     'name': 'Cosmoem',
+    //     'special_type': 'Legendary Pokemon',
+    //     'special_group': 'Other',
+    //     'type_1': 'Psychic',
+    //     'type_2': 'None',
+    //     'other_forms': false,
+    //     'owner_id': 1
+    //   };
+
+    //   expect(dataLegends.body).not.toContainEqual(newLegend);
+    // });
+
+    test('GET by ID', async() => {
+      await fakeRequest(app)
+        .get('/legends/10')
         .expect('Content-Type', /json/)
         .expect(200);
 
       const dataLegends = await fakeRequest(app)
-        .get('/legends')
+        .get('/legends/10')
         .expect('Content-Type', /json/)
         .expect(200);
 
-      const newLegend = {
+      const newLegend = [{
         'id': 10,
-        'name': 'Cosmoem',
-        'special_type': 'Legendary Pokemon',
-        'special_group': 'Other',
-        'type_1': 'Psychic',
-        'type_2': 'None',
-        'other_forms': false,
+        'name': 'Mega Diancie',
+        'special_type': 'Mythical',
+        'special_group': 'N/A',
+        'type_1': 'Rock',
+        'type_2': 'Fairy',
+        'other_forms': true,
         'owner_id': 1
-      };
-
-      expect(data.body).toEqual(newLegend);
-      expect(dataLegends.body).toContainEqual(newLegend);
+      }];
+      expect(dataLegends.body).toEqual(newLegend);
     });
-
-
 
   });
 });
