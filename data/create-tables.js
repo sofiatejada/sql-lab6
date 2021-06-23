@@ -32,6 +32,8 @@ async function run() {
                     type_1 VARCHAR(512) NOT NULL,
                     type_2 VARCHAR(512) NOT NULL,
                     other_forms BOOLEAN NOT NULL,
+                    image_url VARCHAR(512) NOT NULL,
+                    description VARCHAR(512) NOT NULL,
                     owner_id INTEGER NOT NULL REFERENCES users(id)
             );
         `);

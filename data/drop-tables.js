@@ -12,6 +12,7 @@ async function run() {
             DROP TABLE IF EXISTS users CASCADE;
             DROP TABLE IF EXISTS special_type CASCADE;
             DROP TABLE IF EXISTS legends;
+            DROP TABLE IF EXISTS special_type;
         `);
 
     console.log(' drop tables complete', getEmoji(), getEmoji(), getEmoji());
