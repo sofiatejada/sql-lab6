@@ -51,10 +51,10 @@ async function run() {
         });
 
         return client.query(`
-                    INSERT INTO legends (name, special_type_id, special_group, type_1, type_2, other_forms, owner_id)
-                    VALUES ($1, $2, $3, $4, $5, $6, $7);
+                    INSERT INTO legends (name, special_type_id, special_group, type_1, type_2, other_forms, image_url, description, owner_id)
+                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);
                 `,
-        [legend.name, matchedType.id, legend.special_group, legend.type_1, legend.type_2, legend.other_forms, user.id]);
+        [legend.name, matchedType.id, legend.special_group, legend.type_1, legend.type_2, legend.other_forms, legend.image_url, legend.description, user.id]);
       })
     );
     
