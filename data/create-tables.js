@@ -16,11 +16,18 @@ async function run() {
                     id SERIAL PRIMARY KEY,
                     email VARCHAR(256) NOT NULL,
                     hash VARCHAR(512) NOT NULL
-                );           
+                );
+
+                CREATE TABLE special_type (
+                  id SERIAL PRIMARY KEY NOT NULL,
+                  type VARCHAR(1024) NOT NULL
+
+                );
+
                 CREATE TABLE legends (
                     id SERIAL PRIMARY KEY NOT NULL,
                     name VARCHAR(512) NOT NULL,
-                    special_type VARCHAR(512) NOT NULL,
+                    special_type_id INTEGER NOT NULL REFERENCES special_type(id),
                     special_group VARCHAR(512) NOT NULL,
                     type_1 VARCHAR(512) NOT NULL,
                     type_2 VARCHAR(512) NOT NULL,
